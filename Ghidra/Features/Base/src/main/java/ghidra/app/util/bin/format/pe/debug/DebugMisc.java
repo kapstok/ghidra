@@ -79,6 +79,11 @@ public class DebugMisc implements StructConverter {
 		length = reader.readNextInt();
 		unicode = reader.readNextByte() == 1;
 		reserved = reader.readNextByteArray(3);
+
+		if (debugDir.getSizeOfData() > length) {
+			length = debugDir.getSizeOfData();
+		}
+
 		if (length > 0) {
 			actualData =
 				(unicode ? reader.readNextUnicodeString(length) : reader.readNextAsciiString());

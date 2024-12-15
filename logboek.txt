@@ -1,0 +1,28 @@
+GoLink:
+
+@markupDebigMisc:123
+    dataAddr = 0x0040f01c
+    baseAddr = 0x00400000
+
+@toDataType:167
+    components.length = 4
+    components[0] =   0  0  dword  4  DataType  "type of misc data, see defines"
+
+@markup:92
+    binaryReader.currentIndex = 336 (op die index is de waarde 0x{8x}0)
+    binaryReader.size = 51
+
+---
+
+@markupDebigMisc:123
+    Er wordt een dm.toDataType gebruikt. Het lijkt erop dat dm eigenlijk null
+    had moeten zijn, maar het niet is. En dat daardoor errors ontstaan.
+
+@DebugDirectoryParser:106
+    De pointer to raw data (46620/0xB61C) is de plek waar de debug directory
+    begint.
+    Deze debug directory heeft een type van 4 (IMAGE_DEBUG_TYPE_MISC).
+
+---
+
+Gebruik `gradle buildGhirda -x ip`.
